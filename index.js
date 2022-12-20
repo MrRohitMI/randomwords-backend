@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 const randomWords = require('random-words');
 const cors = require('cors');
-const dbConnect = require('../../S4M2/shoppping-backend/Config/db.config');
+const dbConnect = require('./Config/db.config');
 const Users = require('./Model/user.model');
 const PORT=process.env.PORT;
 app.use(express.urlencoded({extended: true}))
