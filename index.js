@@ -3,6 +3,8 @@ const express = require('express')
 const app = express()
 const randomWords = require('random-words');
 const cors = require('cors');
+const dbConnect = require('../../S4M2/shoppping-backend/Config/db.config');
+const Users = require('./Model/user.model');
 const PORT=process.env.PORT;
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
@@ -33,4 +35,6 @@ app.post("/users",async(req,res)=>{
 })
 
 
-app.listen(PORT, () => {console.log('server started on port 8080')})
+app.listen(PORT, () => {
+    dbConnect()
+    console.log('server started on port 8080')})
