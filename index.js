@@ -17,5 +17,20 @@ app.get('/randomword',(req,res)=>{
         res.send(e.message)
     }
 })
+app.get("/users",async(req,res)=>{
+    let u=await Users.find({})
+    res.send(u)
+})
+app.post("/users",async(req,res)=>{
+    let u= req.body
+    try {
+        let newUser=await Users.create(u)
+        res.send(newUser)
+    }
+    catch(e){
+            res.status(500).send(e)
+        }
+})
+
 
 app.listen(PORT, () => {console.log('server started on port 8080')})
